@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBlack"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/btn_sign"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/sign" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrayGreen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="70dp"
+            android:paddingTop="35dp"
+            android:text="400-123-1234"
+            android:textAllCaps="false"
+            android:textColor="@color/colorGrayBlack"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:paddingLeft="210dp"
+            android:paddingTop="20dp"
+            android:text="信息登记"
+            android:textAllCaps="false"
+            android:textColor="@color/colorGrayBlack"
+            android:textSize="45sp" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/user1"
+            android:drawablePadding="10dp"
+            android:gravity="left"
+            android:paddingLeft="210dp"
+            android:paddingTop="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorGrayBlack"
+            android:textSize="45sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/bg_main"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="性别"
+                android:textAllCaps="false"
+                android:textColor="@color/colorGrayBlack"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="144dp"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/cb_male"
+                android:layout_width="133dp"
+                android:layout_height="218dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/selector_male"
+                android:button="@null"
+                android:checked="false" />
+
+            <CheckBox
+                android:id="@+id/cb_female"
+                android:layout_width="133dp"
+                android:layout_height="218dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="268dp"
+                android:layout_marginRight="11dp"
+                android:background="@drawable/selector_female"
+                android:button="@null"
+                android:checked="false" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:paddingLeft="150dp"
+                    android:paddingTop="50dp"
+                    android:text="年龄"
+                    android:textSize="25sp" />
+
+                <SeekBar
+                    android:id="@+id/skBar"
+                    android:layout_width="450dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="300dp"
+                    android:max="100"
+                    android:min="10" />
+            </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="150dp">
+
+                    <TextView
+                        android:id="@+id/tv_height"
+                        android:layout_width="wrap_content"
+                        android:layout_height="150dp"
+                        android:paddingLeft="150dp"
+                        android:paddingTop="50dp"
+                        android:text="身高"
+                        android:textSize="25sp" />
+
+                    <SeekBar
+                        android:id="@+id/skBar1"
+                        android:layout_width="450dp"
+                        android:layout_height="150dp"
+                        android:layout_marginLeft="300dp"
+                        android:max="220"
+                        android:min="100" />
+                </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="300dp">
+
+                <TextView
+                    android:id="@+id/tv_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:paddingLeft="150dp"
+                    android:paddingTop="50dp"
+                    android:text="体重"
+                    android:textSize="25sp" />
+
+                <SeekBar
+                    android:id="@+id/skBar2"
+                    android:layout_width="450dp"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="300dp"
+                    android:max="100"
+                    android:min="40" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:layout_width="150dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="440dp"
+                android:background="@drawable/bg_button_rectangle"
+                android:maxLines="1"
+                android:text="下一步"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp">
+
+            <TextView
+                android:layout_width="179dp"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:paddingLeft="30dp"
+                android:paddingTop="50dp"
+                android:text="禁忌症:"
+                android:textColor="@color/colorWhite"
+                android:textSize="40sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="50dp"
+                android:singleLine="false"
+                android:text="18岁以下    呼吸中枢神经受损疾病者     心率过缓病者    严重支气管炎者(咳嗽)   支气管炎    肺炎患者   鼻出血\n 缺血性中风患者 肺部慢性疾病患者 女性经期 严重的传染性疾病患者  出血性综合症者 低血糖者 心里疾病者"
+                android:textColor="@color/colorWhite"
+                android:textSize="23sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="---氙科医疗---"
+            android:textColor="@color/colorWhite"
+            android:textSize="23sp" />
+    </LinearLayout>
+</LinearLayout>
