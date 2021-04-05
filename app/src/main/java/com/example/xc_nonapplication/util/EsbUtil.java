@@ -22,9 +22,9 @@ import java.net.URL;
 public class EsbUtil {
 
     //服务端地址
-    private static final String URL_SERVER = "http://192.168.1.124:8848/xenco/getXencoInfo";
+    private static final String URL_SERVER = "http://192.168.1.101:8848/xenco/getXencoInfo";
     //http://localhost:8080/message/verifyCode
-    private static final String URL_MESSAGE = "http://192.168.1.124:8080/message/verifyCode";
+    private static final String URL_MESSAGE = "http://192.168.1.101:8080/message/verifyCode";
 
     /**
      * 请求服务到longin
