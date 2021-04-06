@@ -3,6 +3,7 @@ package com.example.xc_nonapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,129 +34,119 @@ public class RegistrationInformationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_information);
-        mSharedPreferences = getSharedPreferences(FILE, MODE_PRIVATE);
-        editor = mSharedPreferences.edit();
+//        mSharedPreferences = getSharedPreferences(FILE, MODE_PRIVATE);
+//        editor = mSharedPreferences.edit();
 
 
-        //记录信息界面用户图标大小
-        mTUser = findViewById(R.id.tv_user);
-        Drawable drawable = getResources().getDrawable(R.drawable.user1);
-        drawable.setBounds(0, 0, 60, 60);//第一个 0 是距左边距离，第二个 0 是距上边距离，40 分别是长宽
-        mTUser.setCompoundDrawables(drawable, null, null, null);//只放左边
+//        mSkBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            /*拖动条停止拖动时调用 */
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "拖动停止");
+//            }
+//            /*拖动条开始拖动时调用*/
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "开始拖动");
+//            }
+//            /* 拖动条进度改变时调用*/
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                mTAge.setText("年龄 " + progress + "岁");
+//                age= String.valueOf(((int) progress));
+//                editor.putString("age", age);
+//                editor.commit();
+//            }
+//        });
 
-        //设置拖拽条
-        mSkBar = findViewById(R.id.skBar);
-        mTAge=findViewById(R.id.tv_age);
-        /* mSkBar 监听setOnSeekBarChangeListener */
-        mSkBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            /*拖动条停止拖动时调用 */
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "拖动停止");
-            }
-            /*拖动条开始拖动时调用*/
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "开始拖动");
-            }
-            /* 拖动条进度改变时调用*/
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                mTAge.setText("年龄 " + progress + "岁");
-                age= String.valueOf(((int) progress));
-                editor.putString("age", age);
-                editor.commit();
-            }
-        });
-
-        mSkBar1 = findViewById(R.id.skBar1);
-        mTHeight=findViewById(R.id.tv_height);
+//        mSkBar1 = findViewById(R.id.skBar1);
+//        mTHeight=findViewById(R.id.tv_height);
         /* mSkBar1 监听setOnSeekBarChangeListener */
-        mSkBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            /*拖动条停止拖动时调用 */
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "拖动停止");
-            }
-            /*拖动条开始拖动时调用*/
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "开始拖动");
-            }
-            /* 拖动条进度改变时调用*/
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                mTHeight.setText("身高 " + progress + "cm");
-                height= String.valueOf(((int) progress));
-                editor.putString("height", height);
-                editor.commit();
-            }
-        });
+//        mSkBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            /*拖动条停止拖动时调用 */
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "拖动停止");
+//            }
+//            /*拖动条开始拖动时调用*/
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "开始拖动");
+//            }
+//            /* 拖动条进度改变时调用*/
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                mTHeight.setText("身高 " + progress + "cm");
+//                height= String.valueOf(((int) progress));
+//                editor.putString("height", height);
+//                editor.commit();
+//            }
+//        });
 
-        mSkBar2 = findViewById(R.id.skBar2);
-        mTWeight=findViewById(R.id.tv_weight);
+//        mSkBar2 = findViewById(R.id.skBar2);
+//        mTWeight=findViewById(R.id.tv_weight);
         /* mSkBar1 监听setOnSeekBarChangeListener */
-        mSkBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            /*拖动条停止拖动时调用 */
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "拖动停止");
-            }
-            /*拖动条开始拖动时调用*/
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                Log.i("SeekBarActivity", "开始拖动");
-            }
-            /* 拖动条进度改变时调用*/
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                mTWeight.setText("体重 " + progress + "kg");
-                weight= String.valueOf(((int) progress));
-                editor.putString("weight", weight);
-                editor.commit();
-            }
-        });
+//        mSkBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            /*拖动条停止拖动时调用 */
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "拖动停止");
+//            }
+//            /*拖动条开始拖动时调用*/
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//                Log.i("SeekBarActivity", "开始拖动");
+//            }
+//            /* 拖动条进度改变时调用*/
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                mTWeight.setText("体重 " + progress + "kg");
+//                weight= String.valueOf(((int) progress));
+//                editor.putString("weight", weight);
+//                editor.commit();
+//            }
+//        });
 
 
         //设置用户 这个用户名可以从前面获取
-        mTUser.setText("Royal");
+//        mTUser.setText("Royal");
 
 
         //选择性别
-        mCbMale = findViewById(R.id.cb_male);
-        mCbMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.d("isChecked", "onCheckedChanged: " + isChecked);
-                if (isChecked) {
-                    //选中为男性时 后台传值同时设置female的复选框的属性为false
-                    mCbFemale.setChecked(false);
-                    SharedPreferences.Editor editor = mSharedPreferences.edit();
-                    editor.putString("sex", "male");
-                    editor.commit();
-                    System.out.println("当前控件处于选中状态");
-                } else {
-                    System.out.println("当前控件取消了选中状态");
-                }
-            }
-        });
+//        mCbMale = findViewById(R.id.cb_male);
+//        mCbMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                Log.d("isChecked", "onCheckedChanged: " + isChecked);
+//                if (isChecked) {
+//                    //选中为男性时 后台传值同时设置female的复选框的属性为false
+//                    mCbFemale.setChecked(false);
+//                    SharedPreferences.Editor editor = mSharedPreferences.edit();
+//                    editor.putString("sex", "male");
+//                    editor.commit();
+//                    System.out.println("当前控件处于选中状态");
+//                } else {
+//                    System.out.println("当前控件取消了选中状态");
+//                }
+//            }
+//        });
 
 
-        mCbFemale = findViewById(R.id.cb_female);
-        mCbFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                Log.d("isChecked", "onCheckedChanged: " + isChecked);
-                if (isChecked) {
-                    //选中为女性时 后台传值同时设置female的复选框的属性为false
-                    SharedPreferences.Editor editor = mSharedPreferences.edit();
-                    editor.putString("sex", "female");
-                    mCbMale.setChecked(false);
-                } else {
-                    System.out.println("当前控件取消了选中状态");
-                }
-            }
-        });
+//        mCbFemale = findViewById(R.id.cb_female);
+//        mCbFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                Log.d("isChecked", "onCheckedChanged: " + isChecked);
+//                if (isChecked) {
+//                    //选中为女性时 后台传值同时设置female的复选框的属性为false
+//                    SharedPreferences.Editor editor = mSharedPreferences.edit();
+//                    editor.putString("sex", "female");
+//                    mCbMale.setChecked(false);
+//                } else {
+//                    System.out.println("当前控件取消了选中状态");
+//                }
+//            }
+//        });
 
 
         //跳转至治疗界面
@@ -172,5 +163,25 @@ public class RegistrationInformationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * 沉浸式模式（Android 4.4及其以上）
+     *
+     * @param hasFocus
+     */
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
     }
 }

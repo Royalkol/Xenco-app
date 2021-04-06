@@ -9,8 +9,8 @@
         android:id="@+id/iv_login"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/beforelogin"
-        android:scaleType="fitCenter"/>
+        android:background="@mipmap/logo"
+        android:scaleType="center" />
 
 
 </LinearLayout>

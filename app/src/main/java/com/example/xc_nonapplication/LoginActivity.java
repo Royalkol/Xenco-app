@@ -188,8 +188,8 @@ public class LoginActivity extends AppCompatActivity {
                     intent = new Intent(LoginActivity.this, RetrievePasswordActivity.class);
                     break;
                 case R.id.btn_login:
-                    //跳转找回密码界面
-                    intent = new Intent(LoginActivity.this, RegistrationInformationActivity.class);
+                    //跳转到禁忌症提示界面
+                    intent = new Intent(LoginActivity.this, AttentionActivity.class);
                     break;
 
             }

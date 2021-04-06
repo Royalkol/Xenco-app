@@ -67,17 +67,17 @@ public class BallProgress extends View {
 
         Bitmap dstBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
 
-        ClipDrawable clipDrawable = null;
-        clipDrawable = (ClipDrawable) getContext().getResources().getDrawable(R.drawable.bottom_top_clip_single_color
-        );//获取球形的背景图片，用于裁剪，就是上面看到的进度球中的图片
-
-        clipDrawable.setBounds(new Rect(0, 0, width, height));//设置边界
-
-        clipDrawable.setLevel((int) (10000 * mProgress));//设置进度，
-
-        Canvas canvas = new Canvas(dstBitmap);//设置画布
-
-        clipDrawable.draw(canvas);//绘制
+//        ClipDrawable clipDrawable = null;
+//        clipDrawable = (ClipDrawable) getContext().getResources().getDrawable(R.drawable.bottom_top_clip_single_color
+//        );//获取球形的背景图片，用于裁剪，就是上面看到的进度球中的图片
+//
+//        clipDrawable.setBounds(new Rect(0, 0, width, height));//设置边界
+//
+//        clipDrawable.setLevel((int) (10000 * mProgress));//设置进度，
+//
+//        Canvas canvas = new Canvas(dstBitmap);//设置画布
+//
+//        clipDrawable.draw(canvas);//绘制
 
         return dstBitmap;//将bitmap返回
     }

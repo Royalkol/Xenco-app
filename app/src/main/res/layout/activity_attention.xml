@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/open">
+
+    <LinearLayout
+        android:layout_width="860dp"
+        android:layout_height="460dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/bg_rpbg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#333333"
+            android:includeFontPadding="false"
+            android:paddingLeft="379dp"
+            android:paddingTop="22dp"
+            android:text="禁忌症"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:orientation="horizontal">
+    
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="26dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginLeft="180dp"
+                android:background="@mipmap/bulb"/>
+
+            <TextView
+                android:layout_width="464dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginLeft="1dp"
+                android:text="为了保证治疗效果，请确认患者无以下症状"
+                android:textColor="#ff111111"
+                android:textSize="24sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="18岁以下"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="严重支气管炎者（咳嗽）"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="141dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="心率过缓疾病者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="女性经期"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="182dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="支气管炎、肺炎患者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginLeft="109dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="162dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="肺部慢性疾病患者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="低血糖者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="缺血性或出血性中风患者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="141dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="出血性综合症者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="82dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="鼻出血"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="210dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="严重的传染性疾病患者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="141dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="心理疾病者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="81dp"
+                android:background="@drawable/bg_bule_dot" />
+
+            <TextView
+                android:layout_width="324dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="6dp"
+                android:text="呼吸中枢神经受损等神经系统疾病者"
+                android:textColor="#ff666666"
+                android:textSize="19sp"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_previous"
+                android:layout_width="420dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="218dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_bule"
+                android:text="下一步"
+                android:textColor="#ffffffff"
+                android:textSize="32sp" />
+    </LinearLayout>
+</LinearLayout>
