@@ -1,8 +1,6 @@
 package com.example.xc_nonapplication;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,154 +11,136 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-//信息登记
+/**
+ * 作者：Royal
+ * * <p>
+ * * 日期: 2020/12/9 10:41
+ * * 信息录入界面
+ */
 public class RegistrationInformationActivity extends AppCompatActivity {
 
-    private TextView mTUser,mTAge,mTHeight,mTWeight;
+    private TextView mTvAge, mTvHeight;
     private Button mBtnPpevious;
     private CheckBox mCbMale, mCbFemale;
-    private SeekBar mSkBar,mSkBar1,mSkBar2;
-    private SharedPreferences mSharedPreferences = null;//声明一个SharedPreferences
-    private SharedPreferences.Editor editor=null;
-    private String FILE = "saveUserNamePwd";//用于保存SharedPreferences的文件
-    static String age, height,weight;
+    private SeekBar mSkBar1, mSkBar2;
+    static String age, height;
 
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_information);
+        mTvAge = findViewById(R.id.tv_age);
+        mTvHeight = findViewById(R.id.tv_height);
+        mBtnPpevious = findViewById(R.id.btn_previous);
+        mCbMale = findViewById(R.id.cb_male);
+        mCbFemale = findViewById(R.id.cb_female);
+        mSkBar1 = findViewById(R.id.sb_age);
+        mSkBar2 = findViewById(R.id.sb_height);
+        //跳转至配气界面
+        mBtnPpevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //先弹出一个alert dialog提示打开气瓶阀门
+                final CustomDialog customDialog = new CustomDialog(RegistrationInformationActivity.this);
+                customDialog.setDrawable(R.mipmap.tip_bulb);
+                customDialog.setText1("温馨提示");
+                customDialog.setText2("准备为您配气，请确保气瓶阀门已打开！");
+                customDialog.setConfirm("确认", new CustomDialog.IonConfirmListener() {
+                    @Override
+                    public void onConfirm(CustomDialog dialog) {
+                        //点击确认后 alert对话框消失
+                        customDialog.dismiss();
+                        Intent intent = new Intent(RegistrationInformationActivity.this, DistributionActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                customDialog.show();
+            }
+        });
+
+        //选择性别
+        mCbFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //选中为女性时 后台传值同时设置male的复选框的属性为false
+                    mCbMale.setChecked(false);
+                    Log.d("---mCbMale---", "被选中");
+                } else {
+                    Log.d("---mCbMale---", "取消选中");
+                }
+            }
+        });
+
+        //选择性别
+        mCbMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //选中为男性时 后台传值同时设置female的复选框的属性为false
+                    mCbFemale.setChecked(false);
+                    Log.d("---mCbMale---", "被选中");
+                } else {
+                    Log.d("---mCbMale---", "取消选中");
+                }
+            }
+        });
 //        mSharedPreferences = getSharedPreferences(FILE, MODE_PRIVATE);
 //        editor = mSharedPreferences.edit();
 
 
-//        mSkBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            /*拖动条停止拖动时调用 */
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "拖动停止");
-//            }
-//            /*拖动条开始拖动时调用*/
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "开始拖动");
-//            }
-//            /* 拖动条进度改变时调用*/
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                mTAge.setText("年龄 " + progress + "岁");
-//                age= String.valueOf(((int) progress));
-//                editor.putString("age", age);
-//                editor.commit();
-//            }
-//        });
-
-//        mSkBar1 = findViewById(R.id.skBar1);
-//        mTHeight=findViewById(R.id.tv_height);
-        /* mSkBar1 监听setOnSeekBarChangeListener */
-//        mSkBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            /*拖动条停止拖动时调用 */
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "拖动停止");
-//            }
-//            /*拖动条开始拖动时调用*/
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "开始拖动");
-//            }
-//            /* 拖动条进度改变时调用*/
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                mTHeight.setText("身高 " + progress + "cm");
-//                height= String.valueOf(((int) progress));
-//                editor.putString("height", height);
-//                editor.commit();
-//            }
-//        });
-
-//        mSkBar2 = findViewById(R.id.skBar2);
-//        mTWeight=findViewById(R.id.tv_weight);
-        /* mSkBar1 监听setOnSeekBarChangeListener */
-//        mSkBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            /*拖动条停止拖动时调用 */
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "拖动停止");
-//            }
-//            /*拖动条开始拖动时调用*/
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//                Log.i("SeekBarActivity", "开始拖动");
-//            }
-//            /* 拖动条进度改变时调用*/
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                mTWeight.setText("体重 " + progress + "kg");
-//                weight= String.valueOf(((int) progress));
-//                editor.putString("weight", weight);
-//                editor.commit();
-//            }
-//        });
-
-
-        //设置用户 这个用户名可以从前面获取
-//        mTUser.setText("Royal");
-
-
-        //选择性别
-//        mCbMale = findViewById(R.id.cb_male);
-//        mCbMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Log.d("isChecked", "onCheckedChanged: " + isChecked);
-//                if (isChecked) {
-//                    //选中为男性时 后台传值同时设置female的复选框的属性为false
-//                    mCbFemale.setChecked(false);
-//                    SharedPreferences.Editor editor = mSharedPreferences.edit();
-//                    editor.putString("sex", "male");
-//                    editor.commit();
-//                    System.out.println("当前控件处于选中状态");
-//                } else {
-//                    System.out.println("当前控件取消了选中状态");
-//                }
-//            }
-//        });
-
-
-//        mCbFemale = findViewById(R.id.cb_female);
-//        mCbFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Log.d("isChecked", "onCheckedChanged: " + isChecked);
-//                if (isChecked) {
-//                    //选中为女性时 后台传值同时设置female的复选框的属性为false
-//                    SharedPreferences.Editor editor = mSharedPreferences.edit();
-//                    editor.putString("sex", "female");
-//                    mCbMale.setChecked(false);
-//                } else {
-//                    System.out.println("当前控件取消了选中状态");
-//                }
-//            }
-//        });
-
-
-        //跳转至治疗界面
-        mBtnPpevious = findViewById(R.id.btn_previous);
-        mBtnPpevious.setOnClickListener(new View.OnClickListener() {
+        if (mSkBar1 != null) {
+            mSkBar1.setMax(100);
+            mSkBar1.setMin(10);
+        }
+        mSkBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /*拖动条停止拖动时调用 */
             @Override
-            public void onClick(View v) {
-                Intent intent = null;
-                switch (v.getId()) {
-                    case R.id.btn_previous:
-                        intent = new Intent(RegistrationInformationActivity.this, DistributionActivity.class);
-                        break;
-                }
-                startActivity(intent);
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Log.i("---SeekBar1---", "拖动停止");
+            }
+
+            /*拖动条开始拖动时调用*/
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Log.i("---SeekBar1---", "开始拖动");
+            }
+
+            /* 拖动条进度改变时调用*/
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mTvAge.setText("左滑选年龄: " + progress + "岁");
+                age = String.valueOf(((int) progress));
+            }
+        });
+
+        if (mSkBar2 != null) {
+            mSkBar2.setMax(190);
+            mSkBar2.setMin(100);
+        }
+        mSkBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /*拖动条停止拖动时调用 */
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Log.i("SeekBarActivity", "拖动停止");
+            }
+
+            /*拖动条开始拖动时调用*/
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Log.i("SeekBarActivity", "开始拖动");
+            }
+
+            /* 拖动条进度改变时调用*/
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                mTvHeight.setText("左滑选身高: " + progress + "cm");
+                height = String.valueOf(((int) progress));
             }
         });
     }

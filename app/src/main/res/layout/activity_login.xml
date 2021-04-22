@@ -54,7 +54,7 @@
             android:layout_height="52dp"
             android:layout_marginLeft="55dp"
             android:layout_marginTop="29dp"
-            android:background="@drawable/bg_inputbox_white"
+            android:background="@drawable/bg_textview_bule"
             android:drawableLeft="@mipmap/user_gray"
             android:drawablePadding="17dp"
             android:hint="请输入您的培训证号"
@@ -66,10 +66,11 @@
             android:layout_height="52dp"
             android:layout_marginLeft="55dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/bg_inputbox_white"
+            android:background="@drawable/bg_textview_bule"
             android:drawableLeft="@mipmap/password_gray"
             android:drawablePadding="17dp"
             android:hint="请输入您的密码"
+            android:inputType="textPassword"
             android:paddingLeft="30dp" />
 
         <LinearLayout

@@ -89,6 +89,7 @@ public class OperateData {
 
         if (url==null){
             mh.sendEmptyMessage(3);
+            Log.d("url","----url不存在---");
         }else{
             new Thread(new Runnable() {
 
@@ -177,7 +178,7 @@ public class OperateData {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
-                        mh.sendEmptyMessage(4);
+                        mh.sendEmptyMessage(0);
                     } finally {
                         //关闭bufferedreader
                         if (bufferedReader != null) {
@@ -301,7 +302,7 @@ public class OperateData {
                         e.printStackTrace();
                     } catch (IOException e) {
                         e.printStackTrace();
-                        mh.sendEmptyMessage(4);
+                        mh.sendEmptyMessage(0);
                     } finally {
                         //关闭bufferedreader
                         if (bufferedReader != null) {

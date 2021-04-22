@@ -13,135 +13,171 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.xc_nonapplication.Vo.MessageInfoVo;
-import com.example.xc_nonapplication.Vo.PhoneInfoVo;
 import com.example.xc_nonapplication.util.EsbUtil;
 import com.example.xc_nonapplication.util.OtherUtil;
 import com.example.xc_nonapplication.util.ToastUtil;
 
 public class RetrievePasswordActivity extends AppCompatActivity {
-    private TextView mTv1;
-    private Button mBtnPpevious, mBtnNext, mBtnGetVfCode;
-    private EditText mEtPhoneNumber, mEtVfCode;
-    private String [] verifyCode;
+    private TextView mTv1, mTv2, mTv3;
+    private Button mBtnPpevious, mBtnNext, mBtnVfCode;
+    private ImageView mIv1, mIv2;
+    private EditText mEtPhoneNumber,mEtMessage;
+    private CustomEditTextButton customEditTextButton;
+    private String phoneNumber;
+    private String[] verifyCode={"000000"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrieve_password);
-        mTv1= findViewById(R.id.tv_1);
+        mTv1 = findViewById(R.id.tv_1);
+        mTv2 = findViewById(R.id.tv_2);
+        mTv3 = findViewById(R.id.tv_3);
+        mIv1 = findViewById(R.id.iv_1);
+        mIv2 = findViewById(R.id.iv_2);
         mBtnPpevious = findViewById(R.id.btn_previous);
         mBtnNext = findViewById(R.id.btn_next);
+        mEtPhoneNumber = findViewById(R.id.et_phonenumber);
+        mEtMessage = findViewById(R.id.et_message);
+        mBtnVfCode = findViewById(R.id.bt_vfcode);
+        customEditTextButton = findViewById(R.id.cs_1);
 
         //设置字体
-        Typeface typeFace =Typeface.createFromAsset(getAssets(),"fonts/SourceHanSansCN-Medium.otf");
+        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/SourceHanSansCN-Medium.otf");
+        Typeface typeFace2 = Typeface.createFromAsset(getAssets(), "fonts/SourceHanSansCN-Regular.otf");
         mTv1.setTypeface(typeFace);
-//        mBtnGetVfCode = findViewById(R.id.btn_vfcode);
+        mTv2.setTypeface(typeFace2);
+        mTv3.setTypeface(typeFace2);
+
         OnClick onClick = new OnClick();
         mBtnPpevious.setOnClickListener(onClick);
-        mBtnNext.setOnClickListener(onClick);
-//        mBtnGetVfCode.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                String phoneNumber = mEtPhoneNumber.getText().toString().trim();
-//                //校验手机号是否输入
-//                if (phoneNumber == null || "".equals(phoneNumber)) {
-//                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "请先输入手机号码");
-//                } else if (!OtherUtil.CheckMobilePhoneNum(mEtPhoneNumber.getText().toString().trim())) {
-//                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "手机号格式不正确");
-//                } else {
-//                    //调用接口 查询是否绑定培训证号
-//
-//                    //调用后端的三方接口 并收验证码
-//                    @SuppressLint("HandlerLeak") Handler handler = new Handler() {
-//                        @Override
-//                        public void handleMessage(Message msg) {
-//                            super.handleMessage(msg);
-//                            switch (msg.what) {
-//                                case 0:
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "服务器连接失败");
-//                                    break;
-//                                case 1:
-//                                    //通过检验 跳转到设置新密码界面
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "请查看收到的验证码");
-//                                    break;
-//                                case 3:
-//                                    Log.e("input error", "url为空");
-//                                    break;
-//                                case 4:
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "连接超时");
-//                                    break;
-//                                default:
-//                            }
-//                        }
-//                    };
-//                    MessageInfoVo messageInfoVo = new MessageInfoVo();
-//                    messageInfoVo.setPhonenumber(phoneNumber);
-//                    //=======================发送请求到服务器====================//
-//                    EsbUtil esbUtil = new EsbUtil();
-//                    verifyCode = esbUtil.MessageService(messageInfoVo, handler);
-//                    System.err.println("verifyCode:"+verifyCode[0]);
-//                }
-//            }
-//        });
+//        mBtnNext.setOnClickListener(onClick);
 
-//        mBtnNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //获取用户名和密码
-//                String phoneNumber = mEtPhoneNumber.getText().toString().trim();
-//                String vfCode = mEtVfCode.getText().toString().trim();
-//                System.err.println("vfCode"+vfCode);
-//                System.err.println("verifyCode"+verifyCode[0]);
-//                if (TextUtils.isEmpty(phoneNumber) || TextUtils.isEmpty(vfCode)) {
-//                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "验证码和手机号输入不能为空");
-//                } else if (!verifyCode[0].equals(vfCode)) {
-//                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "输入的验证码错误");
-//                } else {
-//                    //调用接口 查询是否绑定培训证号
-//                    @SuppressLint("HandlerLeak") Handler handler = new Handler() {
-//                        @Override
-//                        public void handleMessage(Message msg) {
-//                            super.handleMessage(msg);
-//                            switch (msg.what) {
-//                                case 0:
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "服务器连接失败");
-//                                    break;
-//                                case 1:
-//                                    //通过检验 跳转到设置新密码界面
-//                                    Intent intent = new Intent(RetrievePasswordActivity.this, SetPasswordActivity.class);
-//                                    startActivity(intent);
-////                                    RetrievePasswordActivity.this.finish();
-//                                    break;
-//                                case 2:
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "该手机未绑定培训证号");
-//                                    break;
-//                                case 3:
-//                                    Log.e("input error", "url为空");
-//                                    break;
-//                                case 4:
-//                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "连接超时");
-//                                    break;
-//                                default:
-//                            }
-//                        }
-//                    };
-//
-//                    PhoneInfoVo phoneInfoVo = new PhoneInfoVo();
-//                    phoneInfoVo.setPhonenumber(phoneNumber);
-//                    //=======================发送请求到服务器====================//
-//                    EsbUtil esbUtil = new EsbUtil();
-//                    esbUtil.trainService(phoneInfoVo, handler);
-//                }
-//            }
-//        });
+        mBtnVfCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("mBtnVfCode", "---onClick---");
+                phoneNumber = mEtPhoneNumber.getText().toString().trim();
+                Log.d("phoneNumber", "---" + phoneNumber + "---");
+                //手号码为输入时
+                if (TextUtils.isEmpty(phoneNumber)) {
+                    //提示信息
+                    mTv2.setText("手机号未填写 请输入");
+                    //修改提示字体颜色
+                    mTv2.setTextColor(android.graphics.Color.parseColor("#EA322A"));
+                    //修改边框布局(改变颜色)
+                    mEtPhoneNumber.setBackground(getDrawable(R.drawable.bg_textview_red));
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv1.setVisibility(View.VISIBLE);
+                } else if (!OtherUtil.CheckMobilePhoneNum(phoneNumber)) {
+                    //提示信息
+                    mTv2.setText("请输入正确的手机号");
+                    //修改提示字体颜色
+                    mTv2.setTextColor(android.graphics.Color.parseColor("#EA322A"));
+                    //修改边框布局(改变颜色)
+                    mEtPhoneNumber.setBackground(getDrawable(R.drawable.bg_textview_red));
+                    Drawable drawable = getResources().getDrawable(R.mipmap.phone_red);
+                    mEtPhoneNumber.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
+                    mEtPhoneNumber.setCompoundDrawablePadding(15);
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv1.setVisibility(View.VISIBLE);
+                } else {
+                    //当输入的手机号通过上面的校验时 恢复成之前的颜色
+                    mTv2.setText("");
+                    //修改边框布局(改变颜色)
+                    mEtPhoneNumber.setBackground(getDrawable(R.drawable.bg_textview_bule));
+                    Drawable drawable = getResources().getDrawable(R.mipmap.phone_bule);
+                    mEtPhoneNumber.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
+                    mEtPhoneNumber.setCompoundDrawablePadding(15);
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv1.setVisibility(View.INVISIBLE);
+                    //调用验证码接口 该接口先会查询该手机号码是否绑定培训证号 若成功贼会调用
+                    @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+                        @Override
+                        public void handleMessage(Message msg) {
+                            super.handleMessage(msg);
+                            switch (msg.what) {
+                                case 0:
+                                    Log.d("网络连接故障", "---请检查---");
+                                    final CustomDialog customDialog = new CustomDialog(RetrievePasswordActivity.this);
+                                    customDialog.setDrawable(R.mipmap.connection_error);
+                                    customDialog.setConfirm("确认", new CustomDialog.IonConfirmListener() {
+                                        @Override
+                                        public void onConfirm(CustomDialog dialog) {
+                                            //点击确认后 alert对话框消失
+                                            customDialog.dismiss();
+                                        }
+                                    });
+                                    customDialog.show();
+                                    break;
+                                case 1:
+                                    //通过检验 跳转到设置新密码界面
+                                    ToastUtil.showMsgTop(RetrievePasswordActivity.this, "请查看收到的验证码");
+                                    break;
+                                default:
+                            }
+                        }
+                    };
+                    MessageInfoVo messageInfoVo = new MessageInfoVo();
+                    messageInfoVo.setPhonenumber(phoneNumber);
+                    //=======================发送请求到服务器====================//
+                    EsbUtil esbUtil = new EsbUtil();
+                    verifyCode = esbUtil.MessageService(messageInfoVo, handler);
+                    System.err.println("verifyCode:" + verifyCode[0]);
+                }
+            }
+        });
 
+
+        mBtnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //获取手机号和验证码
+                phoneNumber = mEtPhoneNumber.getText().toString().trim();
+                Log.d("phoneNumber", phoneNumber);
+                //获取输入的验证码
+                String vfCode = mEtMessage.getText().toString().trim();
+                Log.d("vfCode", vfCode);
+                if (TextUtils.isEmpty(phoneNumber)) {
+                    //提示信息
+                    mTv2.setText("手机号未填写 请输入");
+                    //修改提示字体颜色
+                    mTv2.setTextColor(android.graphics.Color.parseColor("#EA322A"));
+                    //修改边框布局(改变颜色)
+                    mEtPhoneNumber.setBackground(getDrawable(R.drawable.bg_textview_red));
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv1.setVisibility(View.VISIBLE);
+                } else if (TextUtils.isEmpty(vfCode)) {
+                    //提示信息
+                    mTv3.setText("验证码未填写 请输入");
+                    //修改提示字体颜色
+                    mTv3.setTextColor(android.graphics.Color.parseColor("#EA322A"));
+                    //修改边框布局(改变颜色)
+                    customEditTextButton.setBackground(getDrawable(R.drawable.bg_textview_red));
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv2.setVisibility(View.VISIBLE);
+                } else if (!verifyCode[0].equals(vfCode)) {
+                    //提示信息
+                    mTv3.setText("输入的验证码错误");
+                    //修改提示字体颜色
+                    mTv3.setTextColor(android.graphics.Color.parseColor("#EA322A"));
+                    //修改边框布局(改变颜色)
+                    customEditTextButton.setBackground(getDrawable(R.drawable.bg_textview_red));
+                    //将隐藏的红色感叹号图标显示出来
+                    mIv2.setVisibility(View.VISIBLE);
+                } else {
+                    Intent intent = new Intent(RetrievePasswordActivity.this, SetPasswordActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 
@@ -174,10 +210,6 @@ public class RetrievePasswordActivity extends AppCompatActivity {
                 case R.id.btn_previous:
                     //返回上一个界面
                     intent = new Intent(RetrievePasswordActivity.this, LoginActivity.class);
-                    break;
-                case R.id.btn_next:
-                    //返回上一个界面
-                    intent = new Intent(RetrievePasswordActivity.this, SetPasswordActivity.class);
                     break;
             }
             startActivity(intent);

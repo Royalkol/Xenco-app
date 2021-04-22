@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +9,7 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="228dp"
+            android:layout_height="190dp"
             android:background="#393B47"
             android:orientation="vertical">
 
@@ -17,7 +17,7 @@
                 android:layout_width="131dp"
                 android:layout_height="32dp"
                 android:layout_marginLeft="446dp"
-                android:layout_marginTop="43dp"
+                android:layout_marginTop="30dp"
                 android:includeFontPadding="false"
                 android:text="信息登录"
                 android:textColor="#ffffffff"
@@ -33,12 +33,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!--                <ImageView-->
-                    <!--                    android:layout_width="82dp"-->
-                    <!--                    android:layout_height="87dp"-->
-                    <!--                    android:layout_marginLeft="254dp"-->
-                    <!--                    android:layout_marginTop="14dp"-->
-                    <!--                    android:src="" />-->
+                    <CheckBox
+                        android:id="@+id/cb_male"
+                        android:layout_width="82dp"
+                        android:layout_height="87dp"
+                        android:layout_marginLeft="254dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/selector_male"
+                        android:button="@null"
+                        android:checked="false" />
 
                     <TextView
                         android:layout_width="40dp"
@@ -56,12 +59,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!--                <ImageView-->
-                    <!--                    android:layout_width="82dp"-->
-                    <!--                    android:layout_height="87dp"-->
-                    <!--                    android:layout_marginLeft="354dp"-->
-                    <!--                    android:layout_marginTop="14dp"-->
-                    <!--                    android:src="" />-->
+                    <CheckBox
+                        android:id="@+id/cb_female"
+                        android:layout_width="82dp"
+                        android:layout_height="87dp"
+                        android:layout_marginLeft="354dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/selector_female"
+                        android:button="@null"
+                        android:checked="false" />
 
                     <TextView
                         android:layout_width="40dp"
@@ -82,44 +88,252 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_age"
                 android:layout_width="208dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="93dp"
-                android:text="左滑选年龄: 40岁"
+                android:text="左滑选年龄: 10岁"
                 android:textColor="#ff333333"
-                android:textSize="26sp"
+                android:textSize="25sp"
                 android:includeFontPadding="false"
                 />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="95dp"
+                    android:text="10"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="20"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="30"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="40"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="68dp"
+                    android:text="50"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="60"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="68dp"
+                    android:text="70"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="80"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="90"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="64dp"
+                    android:text="100"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="822dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="94dp"
+                android:layout_marginTop="4dp"
+                android:src="@mipmap/progress" />
+
+            <SeekBar
+                android:id="@+id/sb_age"
+                android:layout_width="846dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="86dp"
+                android:maxHeight="13dp"
+                android:progressDrawable="@drawable/custom_seekbar_progress"
+                android:thumb="@drawable/custom_seekbar_thumb" />
+
             <TextView
+                android:id="@+id/tv_height"
                 android:layout_width="256dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="58dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="93dp"
                 android:text="左滑选身高: 170cm"
                 android:textColor="#ff333333"
-                android:textSize="27sp"
+                android:textSize="25sp"
                 android:includeFontPadding="false"
                 />
 
-            <TextView
-                android:layout_width="232dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="58dp"
-                android:layout_marginLeft="93dp"
-                android:text="左滑选体重: 70kg"
-                android:textColor="#ff333333"
-                android:textSize="26sp"
-                android:includeFontPadding="false"
-                />
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="95dp"
+                    android:text="100"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="110"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="120"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="130"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="140"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="150"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="160"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="170"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="180"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+                <TextView
+                    android:layout_width="37dp"
+                    android:layout_height="18dp"
+                    android:layout_marginLeft="49dp"
+                    android:text="190"
+                    android:textColor="#ffaeadad"
+                    android:textSize="18sp"
+                    android:includeFontPadding="false"
+                    />
+            </LinearLayout>
+            <SeekBar
+                android:id="@+id/sb_height"
+                android:layout_width="846dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="86dp"
+                android:maxHeight="13dp"
+                android:progressDrawable="@drawable/custom_seekbar_progress"
+                android:thumb="@drawable/custom_seekbar_thumb" />
             <Button
                 android:id="@+id/btn_previous"
                 android:layout_width="350dp"
                 android:layout_height="62dp"
                 android:layout_marginLeft="337dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/bg_button_bule"
                 android:text="下一步"
                 android:textColor="#ffffffff"
@@ -128,4 +342,4 @@
     </LinearLayout>
 
 
-</ScrollView>
+</LinearLayout>

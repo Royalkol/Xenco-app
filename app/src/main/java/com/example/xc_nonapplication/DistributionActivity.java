@@ -3,6 +3,7 @@ package com.example.xc_nonapplication;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import com.example.xc_nonapplication.util.BallProgress;
  */
 public class DistributionActivity extends AppCompatActivity {
 
+    private TextView mTv1,mTv2;
     private Button mBtnPreviouse;
 //    private TextView mTUser;
 //    private WaveProgressView waveProgressView_0, waveProgressView_1, waveProgressView_2;
@@ -43,8 +45,9 @@ public class DistributionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distribution);
-//        initView();
-//        initAction();
+        mTv1=findViewById(R.id.tv_1);
+        mTv2=findViewById(R.id.tv_2);
+
 
 //        waveProgressView_0 = (WaveProgressView) findViewById(R.id.wpv_0);
 //        waveProgressView_1 = (WaveProgressView) findViewById(R.id.wpv_1);
@@ -56,32 +59,16 @@ public class DistributionActivity extends AppCompatActivity {
 //            }
 //        });
 
-        //记录信息界面用户图标大小
-//        mTUser = findViewById(R.id.tv_user);
-//        Drawable drawable = getResources().getDrawable(R.drawable.user1);
-//        drawable.setBounds(0, 0, 60, 60);//第一个 0 是距左边距离，第二个 0 是距上边距离，40 分别是长宽
-//        mTUser.setCompoundDrawables(drawable, null, null, null);//只放左边
-//
-//        //设置用户 这个用户名可以从前面获取
-//        mTUser.setText("Royal");
-
-        //
-
 
         //跳转治疗中界面 进行治疗
         mBtnPreviouse = findViewById(R.id.btn_previous);
-//        mBtnPreviouse.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = null;
-//                switch (v.getId()) {
-//                    case R.id.btn_complete:
-//                        intent = new Intent(DistributionActivity.this, TreatmentActivity.class);
-//                        break;
-//                }
-//                startActivity(intent);
-//            }
-//        });
+        mBtnPreviouse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DistributionActivity.this, TreatmentActivity.class);
+                startActivity(intent);
+            }
+        });
         mBtnPreviouse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

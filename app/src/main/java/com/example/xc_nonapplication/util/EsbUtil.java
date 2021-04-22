@@ -22,14 +22,14 @@ import java.net.URL;
 public class EsbUtil {
 
     //服务端地址
-    private static final String URL_SERVER = "http://192.168.1.101:8848/xenco/getXencoInfo";
+    private static final String URL_SERVER = "http://192.168.1.105:8848/xenco/getXencoInfo";
     //http://localhost:8080/message/verifyCode
-    private static final String URL_MESSAGE = "http://192.168.1.101:8080/message/verifyCode";
+    private static final String URL_MESSAGE = "http://192.168.1.105:8080/message/verifyCode";
 
     /**
      * 请求服务到longin
      */
-    public void longinService(LoginInfoVo loginfoVo,Handler handler){
+    public void longinService(LoginInfoVo loginfoVo, Handler handler) {
         OperateData operateData = new OperateData();
         RequsetInfo requsetInfo = new RequsetInfo();
         Head head = new Head();
@@ -45,14 +45,14 @@ public class EsbUtil {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        operateData.sendData(jsonString, handler, url,head.getService_type());
+        operateData.sendData(jsonString, handler, url, head.getService_type());
     }
 
 
     /**
      * 请求服务到Train_service
      */
-    public void trainService(PhoneInfoVo phoneInfo, Handler handler){
+    public void trainService(PhoneInfoVo phoneInfo, Handler handler) {
         OperateData operateData = new OperateData();
         RequsetInfo requsetInfo = new RequsetInfo();
         Head head = new Head();
@@ -68,13 +68,13 @@ public class EsbUtil {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        operateData.sendData(jsonString, handler, url,head.getService_type());
+        operateData.sendData(jsonString, handler, url, head.getService_type());
     }
 
     /**
      * 请求服务到mesaage_service
      */
-    public String[] MessageService(MessageInfoVo messageInfoVo, Handler handler){
+    public String[] MessageService(MessageInfoVo messageInfoVo, Handler handler) {
         OperateData operateData = new OperateData();
         RequsetInfo requsetInfo = new RequsetInfo();
         Head head = new Head();
@@ -90,7 +90,7 @@ public class EsbUtil {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        String [] vfcode=operateData.sendDataRecive(jsonString, handler, url,head.getService_type());
+        String[] vfcode = operateData.sendDataRecive(jsonString, handler, url, head.getService_type());
         return vfcode;
     }
 
@@ -98,7 +98,7 @@ public class EsbUtil {
     /**
      * 请求服务到Train_service
      */
-    public void treatService(TreatInfoVo treatInfoVo, Handler handler){
+    public void treatService(TreatInfoVo treatInfoVo, Handler handler) {
         OperateData operateData = new OperateData();
         RequsetInfo requsetInfo = new RequsetInfo();
         Head head = new Head();
@@ -114,7 +114,7 @@ public class EsbUtil {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        operateData.sendData(jsonString, handler, url,head.getService_type());
+        operateData.sendData(jsonString, handler, url, head.getService_type());
     }
 
 }

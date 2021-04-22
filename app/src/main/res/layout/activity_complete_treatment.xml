@@ -243,7 +243,7 @@
                         android:layout_width="377dp"
                         android:layout_height="38dp"
                         android:layout_marginTop="11dp"
-                        android:src="@mipmap/bule_wave" />
+                        android:src="@mipmap/bule_wave2" />
 
                 </LinearLayout>
 
@@ -265,7 +265,7 @@
                         android:layout_width="377dp"
                         android:layout_height="38dp"
                         android:layout_marginTop="11dp"
-                        android:src="@mipmap/green_wave" />
+                        android:src="@mipmap/green_wave2" />
                 </LinearLayout>
 
 

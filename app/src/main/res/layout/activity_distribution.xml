@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="724dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -14,12 +14,15 @@
             android:background="#FF393B47"
             android:orientation="vertical">
 
-            <ImageView
+            <TextView
                 android:layout_width="137dp"
                 android:layout_height="35dp"
                 android:layout_marginLeft="31dp"
                 android:layout_marginTop="11dp"
-                android:src="@mipmap/bulb" />
+                android:text="氙科医疗"
+                android:textColor="@color/colorWhite"
+                android:textSize="26sp"
+                android:includeFontPadding="false"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -31,10 +34,11 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="52dp"
-                android:layout_marginTop="49dp"
-                android:src="@mipmap/bulb" />
+                android:layout_marginTop="22dp"
+                android:src="@mipmap/male_uncheck" />
 
             <TextView
+                android:id="@+id/tv_1"
                 android:layout_width="114dp"
                 android:layout_height="19dp"
                 android:layout_marginLeft="32dp"
@@ -45,35 +49,35 @@
                 android:textSize="19sp" />
 
             <TextView
-                android:layout_width="190dp"
-                android:layout_height="267dp"
+                android:id="@+id/tv_2"
+                android:layout_width="180dp"
+                android:layout_height="247dp"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="30dp"
                 android:includeFontPadding="false"
-                android:text="禁忌症：18岁以下
-                            呼吸中枢神经系统疾病者
-                            心率过缓疾病者
-                            严重支气管炎者（咳嗽）
-                            支气管炎、肺炎患者
-                            鼻出血缺血性或出血性中
-                            风患者
-                            肺部慢性疾病患者
-                            女性经期
-                            严重的传染性疾病患者
-                            出血性综合症者 低血糖者
-                            心理疾病者"
+                android:text="禁忌症：18岁以下\n呼吸中枢神经系统疾病者\n心率过缓疾病者\n严重支气管炎者(咳嗽)
+                            \n支气管炎、肺炎患者
+                            \n鼻出血缺血性
+                            \n出血性中风患者
+                            \n肺部慢性疾病患者
+                            \n女性经期
+                            \n严重的传染性疾病患者
+                            \n出血性综合症者 低血糖者
+                            \n心理疾病者"
                 android:textColor="#ffffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:singleLine="false"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="169dp"
+                android:layout_marginTop="23dp"
                 android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
+                    android:layout_marginLeft="12dp"
                     android:background="@mipmap/phone2" />
 
                 <TextView
@@ -102,9 +106,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="205dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
                 android:background="@drawable/bg_white_rectangle"
                 android:orientation="vertical">
@@ -184,7 +188,7 @@
                     <ImageView
                         android:layout_width="76dp"
                         android:layout_height="76dp"
-                        android:layout_marginLeft="95dp"
+                        android:layout_marginLeft="151dp"
                         android:layout_marginTop="12dp"
                         android:background="@mipmap/yang" />
 
@@ -220,7 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="25dp"
                 android:orientation="horizontal">
 
@@ -230,18 +234,19 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="226dp"
-                        android:layout_height="226dp"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
                         android:layout_marginLeft="62dp"
                         android:layout_marginTop="25dp"
                         android:text="xe"
                         android:textSize="50dp"/>
 
                     <ImageView
-                        android:layout_width="377dp"
-                        android:layout_height="38dp"
+                        android:layout_width="380dp"
+                        android:layout_height="22dp"
                         android:layout_marginTop="11dp"
-                        android:src="@mipmap/bule_wave" />
+                        android:src="@mipmap/bule_wave2"
+                        android:scaleType="fitXY"/>
 
                 </LinearLayout>
 
@@ -252,18 +257,19 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="226dp"
-                        android:layout_height="226dp"
+                        android:layout_width="163dp"
+                        android:layout_height="163dp"
                         android:layout_marginLeft="62dp"
                         android:layout_marginTop="25dp"
                         android:textSize="50dp"
                         android:text="o2"/>
 
                     <ImageView
-                        android:layout_width="377dp"
-                        android:layout_height="38dp"
+                        android:layout_width="380dp"
+                        android:layout_height="22dp"
                         android:layout_marginTop="11dp"
-                        android:src="@mipmap/green_wave" />
+                        android:src="@mipmap/green_wave2"
+                        android:scaleType="fitXY"/>
                 </LinearLayout>
             </LinearLayout>
             <Button
@@ -272,10 +278,11 @@
                 android:layout_height="62dp"
                 android:layout_marginLeft="236dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/bg_button_bule"
                 android:text="下一步"
                 android:textColor="#ffffffff"
                 android:textSize="32sp" />
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
