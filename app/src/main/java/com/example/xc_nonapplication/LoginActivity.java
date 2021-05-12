@@ -9,11 +9,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -32,9 +34,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView mTv1, mTv2, mTv3;
     private Button mBtnLogin, mBtnForget;
-    //    private CheckBox mCbDisplayPassword;
+    private CheckBox mCbDisplayPassword;
     private EditText mEtTrainNumber, mEtPassword;
-
     private CheckBox mCbRemberPs;
     static String YES = "yes";
     static String NO = "no";
@@ -55,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         mBtnForget = findViewById(R.id.btn_forgetps);
         mEtPassword = findViewById(R.id.et_password);
         mCbRemberPs = findViewById(R.id.cb_remmberps);
+        mCbDisplayPassword = findViewById(R.id.cb_showps);
 
         //设置字体
         Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/SourceHanSansCN-Medium.otf");
@@ -73,21 +75,19 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //切换密码显示
-//        mCbDisplayPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                Log.d("aaa", "onCheckedChanged: " + isChecked);
-//                if (isChecked) {
-//                    //选择状态 显示明文--设置为可见的密码
-//                    mEtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-//                } else {
-//                    //默认状态显示密码--设置文本 要一起写才能起作用 InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD
-//                    mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-//                }
-//            }
-//        });
-
-
+        mCbDisplayPassword.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Log.d("--mCbDisplayPassword--", "onCheckedChanged: " + isChecked);
+                if (isChecked) {
+                    //选择状态 显示明文--设置为可见的密码
+                    mEtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    //默认状态显示密码--设置文本 要一起写才能起作用 InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD
+                    mEtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+            }
+        });
     }
 
     /**

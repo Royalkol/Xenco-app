@@ -1,21 +1,14 @@
 package com.example.xc_nonapplication;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.xc_nonapplication.Vo.TreatInfoVo;
-import com.example.xc_nonapplication.util.EsbUtil;
-import com.example.xc_nonapplication.util.ToastUtil;
 
 /**
  * 作者：Royal
@@ -37,7 +30,7 @@ public class CompleteTreatmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete_treatment);
         //跳转信息登记界面 开始下一个患者的治疗过程
-        mBtnComplete = findViewById(R.id.btn_complete);
+        mBtnComplete = findViewById(R.id.btn_next);
         mBtnComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,6 +38,9 @@ public class CompleteTreatmentActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
 //        mBtnComplete.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -114,5 +110,25 @@ public class CompleteTreatmentActivity extends AppCompatActivity {
 ////});
 //
 //        }
+
+
+    }    /**
+     * 沉浸式模式（Android 4.4及其以上）
+     *
+     * @param hasFocus
+     */
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus && Build.VERSION.SDK_INT >= 19) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
     }
 }

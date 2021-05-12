@@ -16,21 +16,14 @@ import android.view.View;
 
 import java.text.DecimalFormat;
 
-/**
- * ================================================
- * 作    者：顾修忠-guxiuzhong@youku.com/gfj19900401@163.com
- * 版    本：
- * 创建日期：16/8/13-下午4:06
- * 描    述：
- * 修订历史：
- * ================================================
- */
 public class WaveProgressView extends View {
 
     private int radius = dp2px(55);
     private int textColor;
     private int textSize;
+    //进度颜色
     private int progressColor;
+    //背景颜色
     private int radiusColor;
     private Paint textPaint;
     private Paint circlePaint;
@@ -115,11 +108,10 @@ public class WaveProgressView extends View {
         bitmapCanvas.translate(minPadding, minPadding);
         //绘制圆
         bitmapCanvas.drawCircle(radius, radius, radius, circlePaint);
-
         //绘制PATH
         //重置绘制路线
         path.reset();
-        float percent=progress * 1.0f / maxProgress;
+        float percent = progress * 1.0f / maxProgress;
         float y = (1 - percent) * radius * 2;
         //移动到右上边
         path.moveTo(radius * 2, y);
@@ -130,7 +122,7 @@ public class WaveProgressView extends View {
         //移动到左上边
         // path.lineTo(0, y);
         //实现左右波动,根据progress来平移
-        path.lineTo(-(1 -percent) * radius*2, y);
+        path.lineTo(-(1 - percent) * radius * 2, y);
         if (progress != 0.0f) {
             //根据直径计算绘制贝赛尔曲线的次数
             int count = radius * 4 / 60;

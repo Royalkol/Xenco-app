@@ -1,332 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res/com.example.xc_nonapplication"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="724dp"
-        android:orientation="horizontal">
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="#FF393B47"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="137dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="11dp"
+            android:includeFontPadding="false"
+            android:text="氙科医疗"
+            android:padding="5dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#FF393B47" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginTop="22dp"
+            android:src="@mipmap/male_uncheck" />
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="114dp"
+            android:layout_height="19dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="11dp"
+            android:includeFontPadding="false"
+            android:text="Sophine Fox"
+            android:textColor="#ffffffff"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="180dp"
+            android:layout_height="247dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="30dp"
+            android:includeFontPadding="false"
+            android:singleLine="false"
+            android:text="禁忌症：18岁以下\n呼吸中枢神经系统疾病者\n心率过缓疾病者\n严重支气管炎者(咳嗽)
+                            \n支气管炎、肺炎患者
+                            \n鼻出血缺血性
+                            \n出血性中风患者
+                            \n肺部慢性疾病患者
+                            \n女性经期
+                            \n严重的传染性疾病患者
+                            \n出血性综合症者 低血糖者
+                            \n心理疾病者"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
 
         <LinearLayout
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:background="#FF393B47"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="137dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="31dp"
-                android:layout_marginTop="11dp"
-                android:src="@mipmap/bulb" />
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="12dp"
+                android:background="@mipmap/phone2" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="#FF393B47" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="52dp"
-                android:layout_marginTop="49dp"
-                android:src="@mipmap/bulb" />
-
-            <TextView
-                android:layout_width="114dp"
-                android:layout_height="19dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginTop="11dp"
+                android:layout_width="128dp"
+                android:layout_height="14dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="4dp"
                 android:includeFontPadding="false"
-                android:text="Sophine Fox"
+                android:text="400-6666-8888"
                 android:textColor="#ffffffff"
-                android:textSize="19sp" />
-
-            <TextView
-                android:layout_width="190dp"
-                android:layout_height="267dp"
-                android:layout_marginLeft="9dp"
-                android:layout_marginTop="30dp"
-                android:includeFontPadding="false"
-                android:text="禁忌症：18岁以下
-                            呼吸中枢神经系统疾病者
-                            心率过缓疾病者
-                            严重支气管炎者（咳嗽）
-                            支气管炎、肺炎患者
-                            鼻出血缺血性或出血性中
-                            风患者
-                            肺部慢性疾病患者
-                            女性经期
-                            严重的传染性疾病患者
-                            出血性综合症者 低血糖者
-                            心理疾病者"
-                android:textColor="#ffffffff"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="169dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:background="@mipmap/phone2" />
-
-                <TextView
-                    android:layout_width="128dp"
-                    android:layout_height="14dp"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="4dp"
-                    android:includeFontPadding="false"
-                    android:text="400-6666-8888"
-                    android:textColor="#ffffffff"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                android:textSize="14sp" />
         </LinearLayout>
+    </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="824dp"
+        android:layout_height="match_parent"
+        android:background="#FFF4F7FD"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="824dp"
-            android:layout_height="match_parent"
-            android:background="#FFF4F7FD"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="#FFFFFFFF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="205dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/bg_white_rectangle"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:background="#FFFFFFFF" />
+                android:layout_height="70dp"
+                android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="25dp"
-                android:background="@drawable/bg_white_rectangle"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="73dp"
-                        android:src="@drawable/bg_bulegreen" />
-
-                    <TextView
-                        android:layout_width="131dp"
-                        android:layout_height="31dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:includeFontPadding="false"
-                        android:text="治疗中"
-                        android:textColor="#ff111111"
-                        android:textSize="31sp" />
-                </LinearLayout>
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="73dp"
+                    android:src="@drawable/bg_bulegreen" />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:background="#FFF3F6FA" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="95dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="55dp"
-                        android:layout_marginTop="12dp"
-                        android:includeFontPadding="false"
-                        android:text="气瓶余量"
-                        android:textColor="#ff333333"
-                        android:textSize="23sp" />
-
-                    <TextView
-                        android:layout_width="102dp"
-                        android:layout_height="24dp"
-                        android:layout_marginLeft="304dp"
-                        android:layout_marginTop="12dp"
-                        android:includeFontPadding="false"
-                        android:text="正在配气"
-                        android:textColor="#ff333333"
-                        android:textSize="24sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_marginLeft="62dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_ring"
-                        android:text="60%" />
-
-                    <TextView
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_marginLeft="95dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_ring"
-                        android:text="60%" />
-
-                    <ImageView
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_marginLeft="95dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@mipmap/yang" />
-
-                    <TextView
-                        android:layout_width="35dp"
-                        android:layout_height="24dp"
-                        android:layout_marginTop="53dp"
-                        android:includeFontPadding="false"
-                        android:text="O2"
-                        android:textColor="#ff333333"
-                        android:textSize="24sp" />
-
-                    <ImageView
-                        android:layout_width="76dp"
-                        android:layout_height="76dp"
-                        android:layout_marginLeft="95dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@mipmap/xe" />
-
-                    <TextView
-                        android:layout_width="35dp"
-                        android:layout_height="24dp"
-                        android:layout_marginTop="53dp"
-                        android:includeFontPadding="false"
-                        android:text="Xe"
-                        android:textColor="#ff333333"
-                        android:textSize="24sp" />
-
-                </LinearLayout>
+                    android:layout_width="131dp"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:includeFontPadding="false"
+                    android:text="正在治疗"
+                    android:textColor="#ff111111"
+                    android:textSize="31sp" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FFF3F6FA" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="25dp"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="377dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <TextView
+                    android:layout_width="95dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="12dp"
+                    android:includeFontPadding="false"
+                    android:text="气瓶余量"
+                    android:textColor="#ff333333"
+                    android:textSize="23sp" />
 
-                    <TextView
-                        android:layout_width="257dp"
-                        android:layout_height="235dp"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginLeft="74dp"
-                        android:background="@mipmap/mintune" />
-
-                    <TextView
-                        android:layout_width="97dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="25dp"
-                        android:includeFontPadding="false"
-                        android:text="MINUTE"
-                        android:textColor="#ff333333"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                <ImageView
-                    android:layout_width="38dp"
-                    android:layout_height="39dp"
-                    android:layout_marginTop="95dp"
-                    android:src="@mipmap/bg_bule_rectangle"/>
-
-                    <ImageView
-                        android:layout_width="38dp"
-                        android:layout_height="39dp"
-                        android:layout_marginTop="19dp"
-                        android:src="@mipmap/bg_bule_rectangle"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="377dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="257dp"
-                        android:layout_height="235dp"
-                        android:layout_marginTop="22dp"
-                        android:layout_marginLeft="44dp"
-                        android:background="@mipmap/second" />
-
-                    <TextView
-                        android:layout_width="97dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="155dp"
-                        android:layout_marginTop="25dp"
-                        android:includeFontPadding="false"
-                        android:text="SRCOND"
-                        android:textColor="#ff333333"
-                        android:textSize="20sp" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="102dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="304dp"
+                    android:layout_marginTop="12dp"
+                    android:includeFontPadding="false"
+                    android:text="正在配气"
+                    android:textColor="#ff333333"
+                    android:textSize="24sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <Button
-                    android:id="@+id/btn_02"
-                    android:layout_width="240dp"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_button_green"
+                <com.example.xc_nonapplication.RoundProgressBar
+                    android:id="@+id/rb_1"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginLeft="62dp"
+                    android:layout_marginTop="17dp"
+                    android_custom:roundColor="#D1D1D1"
+                    android_custom:roundProgressColor="#68EE61"
+                    android_custom:textColor="#000000"
+                    android_custom:textIsDisplayable="true"
+                    android_custom:roundWidth="5dp"
+                    android_custom:textSize="16sp"
+                    />
+
+                <com.example.xc_nonapplication.RoundProgressBar
+                    android:id="@+id/rb_2"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginLeft="105dp"
+                    android:layout_marginTop="17dp"
+                    android_custom:roundColor="#D1D1D1"
+                    android_custom:roundProgressColor="#0DA9EB"
+                    android_custom:textColor="#000000"
+                    android_custom:textIsDisplayable="true"
+                    android_custom:roundWidth="5dp"
+                    android_custom:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginLeft="161dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@mipmap/yang" />
+
+                <TextView
+                    android:layout_width="35dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="53dp"
+                    android:includeFontPadding="false"
                     android:text="O2"
-                    android:textColor="#ffffffff"
-                    android:textSize="32sp" />
+                    android:textColor="#ff333333"
+                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/btn_stop"
-                    android:layout_width="240dp"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="29dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_button_red"
-                    android:text="中止"
-                    android:textColor="#ffffffff"
-                    android:textSize="32sp" />
+                <ImageView
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_marginLeft="95dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@mipmap/xe" />
 
-                <Button
-                    android:id="@+id/btn_complete"
-                    android:layout_width="240dp"
-                    android:layout_height="62dp"
-                    android:layout_marginLeft="29dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/bg_button_bule"
-                    android:text="下一步"
-                    android:textColor="#ffffffff"
-                    android:textSize="32sp" />
+                <TextView
+                    android:layout_width="35dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="53dp"
+                    android:includeFontPadding="false"
+                    android:text="Xe"
+                    android:textColor="#ff333333"
+                    android:textSize="24sp" />
+
             </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="25dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_white_rectangle">
+
+            <com.example.xc_nonapplication.CountDownView
+                android:id="@+id/cdv_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_start"
+                android:layout_width="240dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_green"
+                android:text="开始治疗"
+                android:textColor="#ffffffff"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn_stop"
+                android:layout_width="240dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_red"
+                android:text="中止治疗"
+                android:textColor="#ffffffff"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/btn_complete"
+                android:layout_width="240dp"
+                android:layout_height="62dp"
+                android:layout_marginLeft="29dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_bule"
+                android:text="结束治疗"
+                android:textColor="#ffffffff"
+                android:textSize="32sp" />
+        </LinearLayout>
+
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
