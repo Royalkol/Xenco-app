@@ -1,7 +1,9 @@
 package com.example.xc_nonapplication.request;
 
+import com.example.xc_nonapplication.Vo.DistributionInfoVo;
 import com.example.xc_nonapplication.Vo.LoginInfoVo;
 import com.example.xc_nonapplication.Vo.MessageInfoVo;
+import com.example.xc_nonapplication.Vo.PersonalInfo;
 import com.example.xc_nonapplication.Vo.PhoneInfoVo;
 import com.example.xc_nonapplication.Vo.TreatInfoVo;
 
@@ -16,7 +18,8 @@ public class Body {
     private PhoneInfoVo phoneInfo;
     private MessageInfoVo messageInfo;
     private TreatInfoVo treatinfo;
-
+    private PersonalInfo personalInfo;
+    private DistributionInfoVo distributioninfo;
 
     public LoginInfoVo getLogininfo() {
         return logininfo;
@@ -48,5 +51,21 @@ public class Body {
 
     public void setTreatinfo(TreatInfoVo treatinfo) {
         this.treatinfo = treatinfo;
+    }
+
+    public PersonalInfo getPersonalInfo() {
+        return personalInfo;
+    }
+
+    public void setPersonalInfo(PersonalInfo personalInfo) {
+        this.personalInfo = personalInfo;
+    }
+
+    public DistributionInfoVo getDistributioninfo() {
+        return distributioninfo;
+    }
+
+    public void setDistributioninfo(DistributionInfoVo distributioninfo) {
+        this.distributioninfo = distributioninfo;
     }
 }

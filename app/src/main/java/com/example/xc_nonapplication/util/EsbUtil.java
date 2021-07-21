@@ -2,6 +2,7 @@ package com.example.xc_nonapplication.util;
 
 import android.os.Handler;
 
+import com.example.xc_nonapplication.Vo.DistributionInfoVo;
 import com.example.xc_nonapplication.Vo.LoginInfoVo;
 import com.example.xc_nonapplication.Vo.MessageInfoVo;
 import com.example.xc_nonapplication.Vo.PhoneInfoVo;
@@ -9,6 +10,8 @@ import com.example.xc_nonapplication.Vo.TreatInfoVo;
 import com.example.xc_nonapplication.request.Body;
 import com.example.xc_nonapplication.request.Head;
 import com.example.xc_nonapplication.request.RequsetInfo;
+import com.example.xc_nonapplication.response.Response;
+import com.example.xc_nonapplication.response.ResponseDistribution;
 import com.google.gson.Gson;
 
 import java.net.MalformedURLException;
@@ -21,10 +24,10 @@ import java.net.URL;
  */
 public class EsbUtil {
 
-    //服务端地址
-    private static final String URL_SERVER = "http://192.168.1.105:8848/xenco/getXencoInfo";
-    //http://localhost:8080/message/verifyCode
-    private static final String URL_MESSAGE = "http://192.168.1.105:8080/message/verifyCode";
+//    //服务端地址
+//    private static final String URL_SERVER = "http://192.168.1.105:8848/xenco/getXencoInfo";
+//    //http://localhost:8080/message/verifyCode
+//    private static final String URL_MESSAGE = "http://192.168.1.105:8080/message/verifyCode";
 
     /**
      * 请求服务到longin
@@ -41,7 +44,7 @@ public class EsbUtil {
         String jsonString = new Gson().toJson(requsetInfo);
         URL url = null;
         try {
-            url = new URL(URL_SERVER);
+            url = new URL(ConfigUtil.URL_SERVER);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -64,7 +67,7 @@ public class EsbUtil {
         String jsonString = new Gson().toJson(requsetInfo);
         URL url = null;
         try {
-            url = new URL(URL_SERVER);
+            url = new URL(ConfigUtil.URL_MESSAGE);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -74,7 +77,7 @@ public class EsbUtil {
     /**
      * 请求服务到mesaage_service
      */
-    public String[] MessageService(MessageInfoVo messageInfoVo, Handler handler) {
+    public Response MessageService(MessageInfoVo messageInfoVo, Handler handler) throws InterruptedException {
         OperateData operateData = new OperateData();
         RequsetInfo requsetInfo = new RequsetInfo();
         Head head = new Head();
@@ -86,12 +89,12 @@ public class EsbUtil {
         String jsonString = new Gson().toJson(requsetInfo);
         URL url = null;
         try {
-            url = new URL(URL_MESSAGE);
+            url = new URL(ConfigUtil.URL_MESSAGE);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        String[] vfcode = operateData.sendDataRecive(jsonString, handler, url, head.getService_type());
-        return vfcode;
+        Response response = operateData.sendDataRecive(jsonString, handler, url, head.getService_type());
+        return response;
     }
 
 
@@ -110,11 +113,39 @@ public class EsbUtil {
         String jsonString = new Gson().toJson(requsetInfo);
         URL url = null;
         try {
-            url = new URL(URL_SERVER);
+            url = new URL(ConfigUtil.URL_SERVER);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         operateData.sendData(jsonString, handler, url, head.getService_type());
     }
 
+
+    /**
+     * 请求服务到distribution
+     */
+    public ResponseDistribution DistributionService(DistributionInfoVo distributionInfoVo, Handler handler) throws InterruptedException {
+        ResponseDistribution responseDistribution =null;
+        OperateData operateData = new OperateData();
+        RequsetInfo requsetInfo = new RequsetInfo();
+        Head head = new Head();
+        head.setService_type("DISTRIBUTION");
+        Body body = new Body();
+        body.setDistributioninfo(distributionInfoVo);
+        requsetInfo.setHead(head);
+        requsetInfo.setBody(body);
+        String jsonString = new Gson().toJson(requsetInfo);
+        URL url = null;
+        try {
+            url = new URL(ConfigUtil.URL_SERVER);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Response response = operateData.sendDataRecive(jsonString, handler, url, head.getService_type());
+
+        if (response!=null){
+            responseDistribution =response.getBody().getDistribution();
+        }
+        return responseDistribution;
+    }
 }

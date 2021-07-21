@@ -9,6 +9,7 @@ public class Body {
     private ResponseLogin resultinfo;
     private ResponseTrainInfo traininfo;
     private ResponseMessage messageInfoVo;
+    private ResponseDistribution distribution;
 
     public ResponseTrainInfo getTraininfo() {
         return traininfo;
@@ -32,6 +33,14 @@ public class Body {
 
     public void setMessageInfoVo(ResponseMessage messageInfoVo) {
         this.messageInfoVo = messageInfoVo;
+    }
+
+    public ResponseDistribution getDistribution() {
+        return distribution;
+    }
+
+    public void setDistribution(ResponseDistribution distribution) {
+        this.distribution = distribution;
     }
 }
 

@@ -86,6 +86,13 @@ public class DistributionActivity extends AppCompatActivity {
         mTv5.setTypeface(typeFace);
         mTv6.setTypeface(typeFace);
 
+        //获取上一个activity传递的数据 氙气 氧气
+        Bundle bundle = getIntent().getExtras();
+        final int oxygenTime = bundle.getInt("oxygenTime");
+        final int xenonTime = bundle.getInt("xenonTime");
+        System.out.println("oxygenTime" + oxygenTime);
+        System.out.println("xenonTime" + xenonTime);
+
         if (tcp_client == null) {
             tcp_client = new TCP_client(cli_handler);
             try {
@@ -104,43 +111,80 @@ public class DistributionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (client_islink == true) {
+                    //打开继电器开关1
                     String message = "AT+STACH1=1" + "\r\n";
+                    Log.d("message", "AT+STACH1=1\" + \"\\r\\n");
                     sendmessage(message);
+
+                    //打开继电器开关2
                     String message1 = "AT+STACH2=1" + "\r\n";
                     sendmessage(message1);
-                    Log.d("---继电器开关1打开---", "AT+STACH1=1");
                     Log.d("---继电器开关2打开---", "AT+STACH2=1");
 
-                } else {
-                    // "连接未建立"
-                }
+                    //氙气球形进度
+                    ObjectAnimator objectAnimator0 = ObjectAnimator.ofFloat(mWp1, "progress", 0f, 100f);
+                    objectAnimator0.setDuration(xenonTime * 1000);
+                    objectAnimator0.setInterpolator(new LinearInterpolator());
+                    objectAnimator0.start();
 
-                //球行进度
-                ObjectAnimator objectAnimator0 = ObjectAnimator.ofFloat(mWp1, "progress", 0f, 100f);
-                objectAnimator0.setDuration(3300);
-                objectAnimator0.setInterpolator(new LinearInterpolator());
-                objectAnimator0.start();
-
-                ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(mWp2, "progress", 0f, 100f);
-                objectAnimator1.setDuration(3300);
-                objectAnimator1.setInterpolator(new LinearInterpolator());
-                objectAnimator1.start();
-                new Thread(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        while (progress > 0) {
-                            progress -= 2;
-                            System.out.println("progress" + progress);
-                            mRb1.setProgress(progress);
-                            mRb2.setProgress(progress);
+                    //氧气球形进度
+                    ObjectAnimator objectAnimator1 = ObjectAnimator.ofFloat(mWp2, "progress", 0f, 100f);
+                    objectAnimator1.setDuration(oxygenTime * 1000);
+                    objectAnimator1.setInterpolator(new LinearInterpolator());
+                    objectAnimator1.start();
+                    //定时氙气配气时间
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
                             try {
-                                Thread.sleep(100);
+                                Thread.sleep(xenonTime * 1000);
+                                String message = "AT+STACH1=0" + "\r\n";
+                                Log.d("message", "AT+STACH1=0\" + \"\\r\\n");
+                                sendmessage(message);
+                                Log.d("---继电器开关1关闭---", "AT+STACH1=0");
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
-                        Log.d("---progress---", progress+"");
+                    }).start();
+
+                    //定时氧气配气时间
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(oxygenTime * 1000);
+                                String message = "AT+STACH2=0" + "\r\n";
+                                Log.d("message1", "AT+STACH2=0\" + \"\\r\\n");
+                                sendmessage(message);
+                                Log.d("---继电器开关2关闭---", "AT+STACH2=0");
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
+                } else {
+                    // "连接未建立" 弹出警告窗口
+
+                }
+
+
+//                new Thread(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        while (progress > 0) {
+//                            progress -= 2;
+//                            System.out.println("progress" + progress);
+//                            mRb1.setProgress(progress);
+//                            mRb2.setProgress(progress);
+//                            try {
+//                                Thread.sleep(480);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                        Log.d("---progress---", progress + "");
 //                        //若气体剩余量为0时则弹出提示窗口
 //                        if (progress==0){
 //                            final CustomDialog customDialog = new CustomDialog(DistributionActivity.this);
@@ -155,17 +199,15 @@ public class DistributionActivity extends AppCompatActivity {
 //                            customDialog.show();
 //                        }
 
-                        String message = "AT+STACH1=0" + "\r\n";
-                        String message1 = "AT+STACH2=0" + "\r\n";
-                        sendmessage(message);
-                        sendmessage(message1);
-                        Log.d("---继电器开关1关闭---", "AT+STACH1=0");
-                        Log.d("---继电器开关2关闭---", "AT+STACH2=0");
-                        Looper.loop();
-                    }
-                }).start();
-
-
+//                        String message = "AT+STACH1=0" + "\r\n";
+//                        String message1 = "AT+STACH2=0" + "\r\n";
+//                        sendmessage(message);
+//                        sendmessage(message1);
+//                        Log.d("---继电器开关1关闭---", "AT+STACH1=0");
+//                        Log.d("---继电器开关2关闭---", "AT+STACH2=0");
+//                        Looper.loop();
+//                    }
+//                }).start();
 
 
             }
@@ -174,7 +216,6 @@ public class DistributionActivity extends AppCompatActivity {
         mBtnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 //中止配气
                 String message = "AT+STACH1=0" + "\r\n";
                 String message1 = "AT+STACH2=0" + "\r\n";

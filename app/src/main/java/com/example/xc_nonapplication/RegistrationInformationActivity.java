@@ -1,8 +1,12 @@
 package com.example.xc_nonapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +17,12 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.xc_nonapplication.Vo.DistributionInfoVo;
+import com.example.xc_nonapplication.Vo.LoginInfoVo;
+import com.example.xc_nonapplication.response.Response;
+import com.example.xc_nonapplication.response.ResponseDistribution;
+import com.example.xc_nonapplication.util.EsbUtil;
 
 /**
  * 作者：Royal
@@ -26,7 +36,8 @@ public class RegistrationInformationActivity extends AppCompatActivity {
     private Button mBtnPpevious;
     private CheckBox mCbMale, mCbFemale;
     private SeekBar mSkBar1, mSkBar2;
-    static String age, height;
+    private String sex;
+    private int age, height, oxygenTime, xenonTime;
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -45,21 +56,75 @@ public class RegistrationInformationActivity extends AppCompatActivity {
         mBtnPpevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //先弹出一个alert dialog提示打开气瓶阀门
-                final CustomDialog customDialog = new CustomDialog(RegistrationInformationActivity.this);
-                customDialog.setDrawable(R.mipmap.tip_bulb);
-                customDialog.setText1("温馨提示");
-                customDialog.setText2("准备为您配气，请确保气瓶阀门已打开！");
-                customDialog.setConfirm("确认", new CustomDialog.IonConfirmListener() {
-                    @Override
-                    public void onConfirm(CustomDialog dialog) {
-                        //点击确认后 alert对话框消失
-                        customDialog.dismiss();
-                        Intent intent = new Intent(RegistrationInformationActivity.this, DistributionActivity.class);
-                        startActivity(intent);
-                    }
-                });
-                customDialog.show();
+
+                try {
+                    //个人信息接口获取配气时间
+                    @SuppressLint("HandlerLeak") Handler handler = new Handler() {
+                        @Override
+                        public void handleMessage(Message msg) {
+                            super.handleMessage(msg);
+                            switch (msg.what) {
+                                case 0:
+                                    //网络连接存在问题 弹出一个提示窗口
+                                    Log.d("网络连接故障", "---请检查---");
+                                    final CustomDialog customDialog = new CustomDialog(RegistrationInformationActivity.this);
+                                    customDialog.setDrawable(R.mipmap.connection_error);
+                                    customDialog.setConfirm("确认", new CustomDialog.IonConfirmListener() {
+                                        @Override
+                                        public void onConfirm(CustomDialog dialog) {
+                                            //点击确认后 alert对话框消失
+                                            customDialog.dismiss();
+                                        }
+                                    });
+                                    customDialog.show();
+                                    break;
+                                case 1:
+                                    Log.d("获取配气时间成功", "---请继续一下操作---");
+                                    //传递数据至配气界面
+                                    Intent intent = new Intent(RegistrationInformationActivity.this, DistributionActivity.class);
+                                    Bundle bundle =new Bundle();
+                                    bundle.putInt("xenonTime",xenonTime);
+                                    bundle.putInt("oxygenTime",oxygenTime);
+                                    intent.putExtras(bundle);
+                                    startActivity(intent);
+                                    break;
+                                default:
+                            }
+                        }
+                    };
+                    DistributionInfoVo distributionInfoVo = new DistributionInfoVo();
+                    distributionInfoVo.setSex(sex);
+                    distributionInfoVo.setHeight(height);
+                    distributionInfoVo.setAge(age);
+                    System.out.println(distributionInfoVo);
+                    //=======================发送请求到服务器====================//
+                    EsbUtil esbUtil = new EsbUtil();
+                    ResponseDistribution responseDistribution = esbUtil.DistributionService(distributionInfoVo, handler);
+                    System.out.println(responseDistribution);
+
+                    //获取配气时间
+                    xenonTime = responseDistribution.getXenonTime();
+                    oxygenTime = responseDistribution.getOxygenTime();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+//                //先弹出一个alert dialog提示打开气瓶阀门
+//                final CustomDialog customDialog = new CustomDialog(RegistrationInformationActivity.this);
+//                customDialog.setDrawable(R.mipmap.tip_bulb);
+//                customDialog.setText1("温馨提示");
+//                customDialog.setText2("准备为您配气，请确保气瓶阀门已打开！");
+//                customDialog.setConfirm("确认", new CustomDialog.IonConfirmListener() {
+//                    @Override
+//                    public void onConfirm(CustomDialog dialog) {
+//                        //点击确认后 alert对话框消失
+//                        customDialog.dismiss();
+//                        Intent intent = new Intent(RegistrationInformationActivity.this, DistributionActivity.class);
+//                        startActivity(intent);
+//                    }
+//                });
+//                customDialog.show();
             }
         });
 
@@ -70,6 +135,7 @@ public class RegistrationInformationActivity extends AppCompatActivity {
                 if (isChecked) {
                     //选中为女性时 后台传值同时设置male的复选框的属性为false
                     mCbMale.setChecked(false);
+                    sex = "female";
                     Log.d("---mCbMale---", "被选中");
                 } else {
                     Log.d("---mCbMale---", "取消选中");
@@ -84,6 +150,7 @@ public class RegistrationInformationActivity extends AppCompatActivity {
                 if (isChecked) {
                     //选中为男性时 后台传值同时设置female的复选框的属性为false
                     mCbFemale.setChecked(false);
+                    sex = "male";
                     Log.d("---mCbMale---", "被选中");
                 } else {
                     Log.d("---mCbMale---", "取消选中");
@@ -115,7 +182,7 @@ public class RegistrationInformationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mTvAge.setText("左滑选年龄: " + progress + "岁");
-                age = String.valueOf(((int) progress));
+                age = progress;
             }
         });
 
@@ -140,7 +207,7 @@ public class RegistrationInformationActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 mTvHeight.setText("左滑选身高: " + progress + "cm");
-                height = String.valueOf(((int) progress));
+                height = progress;
             }
         });
     }

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.xc_nonapplication.Vo.MessageInfoVo;
+import com.example.xc_nonapplication.response.Response;
 import com.example.xc_nonapplication.util.EsbUtil;
 import com.example.xc_nonapplication.util.OtherUtil;
 import com.example.xc_nonapplication.util.ToastUtil;
@@ -129,8 +130,14 @@ public class RetrievePasswordActivity extends AppCompatActivity {
                     messageInfoVo.setPhonenumber(phoneNumber);
                     //=======================发送请求到服务器====================//
                     EsbUtil esbUtil = new EsbUtil();
-                    verifyCode = esbUtil.MessageService(messageInfoVo, handler);
-                    System.err.println("verifyCode:" + verifyCode[0]);
+                    Response response = null;
+                    try {
+                        response = esbUtil.MessageService(messageInfoVo, handler);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    String verifyCode =response.getBody().getMessageInfoVo().getVfcode();
+                    System.err.println("verifyCode:" + verifyCode);
                 }
             }
         });
